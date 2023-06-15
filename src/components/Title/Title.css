@@ -1,0 +1,22 @@
+.title-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.month-title {
+    color: #6096b4;
+    margin: 0 10px 0 0;
+}
+
+.year-container {
+    padding: 5px;
+    background-color: #6096b4;
+    border: 1px solid #6096b4;
+    border-radius: 10px;
+}
+
+.year-title {
+    color: white;
+    margin: 0;
+}
