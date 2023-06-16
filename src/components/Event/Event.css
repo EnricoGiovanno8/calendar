@@ -1,0 +1,88 @@
+.first-event-container {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    background-color: #b7c4cf;
+    margin-top: 5px;
+    padding-bottom: 5px;
+}
+
+.second-event-container {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    background-color: #815b5b;
+    padding-bottom: 5px;
+}
+
+.third-event-container {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    background-color: #d7c0ae;
+    padding-bottom: 5px;
+}
+
+.first-event-container:hover,
+.second-event-container:hover,
+.third-event-container:hover {
+    opacity: 0.5;
+}
+
+.round {
+    border-radius: 5px;
+}
+
+.top-round {
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.bottom-round {
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.title-container {
+    display: flex;
+    align-items: center;
+    padding: 5px 5px 0 5px;
+    justify-content: space-between;
+}
+
+.event-name {
+    flex: 1;
+    font-size: 10px;
+    color: white;
+    margin: 0;
+    font-weight: 600;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.time-container {
+    padding: 2px;
+    background: white;
+    border-radius: 5px;
+}
+
+.event-time {
+    font-size: 8px;
+    color: #967e76;
+    margin: 0;
+    font-weight: 600;
+}
+
+.invitee {
+    font-size: 8px;
+    margin: 0;
+    color: white;
+    padding: 2px 5px 0;
+}

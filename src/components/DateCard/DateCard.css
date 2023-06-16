@@ -1,8 +1,20 @@
 .card-container {
+    padding: 5px;
     display: flex;
-    flex-basis: calc((100% / 7));
-    max-width: calc((100% / 7));
-    justify-content: center;
-    align-items: center;
+    flex-direction: column;
     background-color: white;
+    border-radius: 10px;
+    min-height: 3rem;
 }
+
+.card-container:hover {
+    cursor: pointer;
+}
+
+.date {
+    color: #967e76;
+    margin: 0;
+    font-size: 12px;
+    font-weight: 600;
+}
+
