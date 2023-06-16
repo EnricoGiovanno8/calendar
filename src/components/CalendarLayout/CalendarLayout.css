@@ -22,3 +22,9 @@
     margin: 5px 0;
     font-weight: 600;
 }
+
+@media (min-width: 1200px) {
+    .header-text {
+        font-size: 1.4rem;
+    }
+}

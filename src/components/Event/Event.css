@@ -76,3 +76,14 @@
     color: white;
     padding: 2px 5px 0;
 }
+
+@media (min-width: 1200px) {
+    .event-name {
+        font-size: 0.8rem;
+    }
+
+    .event-time,
+    .invitee {
+        font-size: 0.65rem;
+    }
+}

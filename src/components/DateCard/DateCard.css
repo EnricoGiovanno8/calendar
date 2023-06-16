@@ -4,7 +4,7 @@
     flex-direction: column;
     background-color: white;
     border-radius: 10px;
-    min-height: 3rem;
+    min-height: 10vh;
 }
 
 .card-container:hover {
@@ -20,5 +20,16 @@
 
 .event-group {
     display: grid;
+    height: 100%;
     margin-top: 5px;
+}
+
+@media (min-width: 1200px) {
+    .date {
+        font-size: 1rem;
+    }
+
+    .card-container {
+        padding: 10px;
+    }
 }
