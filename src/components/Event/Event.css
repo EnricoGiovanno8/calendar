@@ -1,29 +1,19 @@
 .first-event-container {
-    position: relative;
-    z-index: 1;
     display: flex;
-    flex: 1;
     flex-direction: column;
     background-color: #b7c4cf;
-    margin-top: 5px;
     padding-bottom: 5px;
 }
 
 .second-event-container {
-    position: relative;
-    z-index: 1;
     display: flex;
-    flex: 1;
     flex-direction: column;
     background-color: #815b5b;
     padding-bottom: 5px;
 }
 
 .third-event-container {
-    position: relative;
-    z-index: 1;
     display: flex;
-    flex: 1;
     flex-direction: column;
     background-color: #d7c0ae;
     padding-bottom: 5px;

@@ -1,16 +1,19 @@
 import { FC, useEffect, useMemo, useState } from "react";
 import { EventData } from "../DateCard/DateCard";
 import "./Modal.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTrashCan } from "@fortawesome/free-solid-svg-icons";
 
 interface ModalProps {
     isOpen: boolean;
     mode: "Add" | "Edit";
     onCancel: () => void;
     onSubmit: (eventData: EventData) => void;
+    onDelete?: () => void;
     event?: EventData;
 }
 
-const Modal: FC<ModalProps> = ({ isOpen, mode, onCancel, onSubmit, event }) => {
+const Modal: FC<ModalProps> = ({ isOpen, mode, onCancel, onSubmit, onDelete, event }) => {
     const [name, setName] = useState<string>("");
     const [hour, setHour] = useState<string>("1");
     const [minute, setMinute] = useState<string>("0");
@@ -105,13 +108,18 @@ const Modal: FC<ModalProps> = ({ isOpen, mode, onCancel, onSubmit, event }) => {
     }
 
     return (
-        <div className="modal-overlay">
+        <div className="modal-overlay" onClick={(e) => e.stopPropagation()}>
             <div className="modal-content">
                 <div className="modal">
-                    <div>
+                    <div className="modal-header">
                         <p className="modal-title">
                             {mode === "Add" ? "Add New Event" : "Edit Event"}
                         </p>
+                        {mode === "Edit" && (
+                            <div className="trash-container" onClick={onDelete}>
+                                <FontAwesomeIcon icon={faTrashCan} color="white" width={10} height={10} />
+                            </div>
+                        )}
                     </div>
 
                     <label className="label">Event Name:</label>

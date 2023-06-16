@@ -7,9 +7,17 @@ interface EventProps {
     eventData: EventData;
     index: number;
     totalEvents: number;
+    onEdit: (index: number, data: EventData) => void;
+    onDelete: (index: number) => void;
 }
 
-const Event: FC<EventProps> = ({ eventData, index, totalEvents }) => {
+const Event: FC<EventProps> = ({
+    eventData,
+    index,
+    totalEvents,
+    onEdit,
+    onDelete,
+}) => {
     const [editModalVisible, setEditModalVisible] = useState<boolean>(false);
 
     const containerClassName = () => {
@@ -32,7 +40,17 @@ const Event: FC<EventProps> = ({ eventData, index, totalEvents }) => {
         return "third-event-container bottom-round";
     };
 
-    const onSubmit = () => {};
+    const onSubmit = (eventData: EventData) => {
+        onEdit(index, eventData);
+        setEditModalVisible(false);
+    };
+
+    const onDeleteEvent = () => {
+        if (window.confirm(`Delete ${eventData.name}?`)) {
+            onDelete(index);
+            setEditModalVisible(false);
+        }
+    };
 
     return (
         <>
@@ -59,6 +77,7 @@ const Event: FC<EventProps> = ({ eventData, index, totalEvents }) => {
                 mode="Edit"
                 onCancel={() => setEditModalVisible(false)}
                 onSubmit={onSubmit}
+                onDelete={onDeleteEvent}
                 event={eventData}
             />
         </>

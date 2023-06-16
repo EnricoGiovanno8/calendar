@@ -38,7 +38,7 @@ const DateCard: FC<DateCardProps> = ({ date, month, year }) => {
             return setAddModalVisible(!addModalVisible);
         }
 
-        return alert("User can only add 3 events in one day!");
+        return alert("User can only add 3 events in a day!");
     };
 
     const saveEventsInBrowser = useCallback(
@@ -66,18 +66,34 @@ const DateCard: FC<DateCardProps> = ({ date, month, year }) => {
         setAddModalVisible(false);
     };
 
+    const onEdit = (index: number, eventData: EventData) => {
+        setEvents([
+            ...events.slice(0, index),
+            eventData,
+            ...events.slice(index + 1),
+        ]);
+    };
+
+    const onDelete = (index: number) => {
+        setEvents([...events.slice(0, index), ...events.slice(index + 1)]);
+    };
+
     return (
         <>
             <div className="card-container" onClick={onClickDate}>
                 <p className="date">{date}</p>
-                {events.map((eventData, index) => (
-                    <Event
-                        key={"event-" + index}
-                        eventData={eventData}
-                        index={index}
-                        totalEvents={events.length}
-                    />
-                ))}
+                <div className="event-group" style={{ gridTemplateRows: `repeat(${events.length}, 1fr)`}}>
+                    {events.map((eventData, index) => (
+                        <Event
+                            key={"event-" + index}
+                            eventData={eventData}
+                            index={index}
+                            totalEvents={events.length}
+                            onEdit={onEdit}
+                            onDelete={onDelete}
+                        />
+                    ))}
+                </div>
             </div>
             <Modal
                 isOpen={addModalVisible}
